@@ -1,0 +1,2 @@
+{"t":0,"kind":"request","data":"GET https://example.com/c/signalr/negotiate?clientProtocol=1.5&connectionData=%5B%7B%22name%22%3A%22hubc%22%7D%5D&_=0"}
+{"t":651,"kind":"response","data":"200 {\"Url\":\"/c/signalr\",\"ConnectionToken\":\"FAKE_TOKEN\",\"ConnectionId\":\"00000000-0000-0000-0000-000000000008\",\"KeepAliveTimeout\":20.0,\"DisconnectTimeout\":30.0,\"ConnectionTimeout\":110.0,\"TryWebSockets\":true,\"ProtocolVersion\":\"1.5\",\"TransportConnectTimeout\":5.0,\"LongPollDelay\":0.0}"}

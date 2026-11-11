@@ -1,0 +1,8 @@
+{"t":0,"kind":"request","data":"POST https://example.com/a/signalr/hubs/signalr/connect?transport=longPolling&clientProtocol=1.5&connectionToken=FAKE_TOKEN&connectionData=%5B%7B%22name%22%3A%22huba%22%7D%5D"}
+{"t":30,"kind":"response","data":"200"}
+{"t":31,"kind":"request","data":"GET https://example.com/a/signalr/hubs/signalr/start?transport=longPolling&clientProtocol=1.5&connectionToken=FAKE_TOKEN&connectionData=%5B%7B%22name%22%3A%22huba%22%7D%5D"}
+{"t":41,"kind":"response","data":"200 {\"Response\":\"started\"}"}
+{"t":41,"kind":"request","data":"POST https://example.com/a/signalr/hubs/signalr/poll?transport=longPolling&clientProtocol=1.5&connectionToken=FAKE_TOKEN&connectionData=%5B%7B%22name%22%3A%22huba%22%7D%5D&messageId=d-FAKE-A%2C0%7CC%2C0%7CD%2C1"}
+{"t":115769,"kind":"response","data":"200           {\"C\":\"d-FAKE-A,0|C,0|D,1\",\"M\":[]}"}
+{"t":115770,"kind":"request","data":"POST https://example.com/a/signalr/hubs/signalr/abort?transport=longPolling&clientProtocol=1.5&connectionToken=FAKE_TOKEN&connectionData=%5B%7B%22name%22%3A%22huba%22%7D%5D"}
+{"t":115846,"kind":"response","data":"200"}

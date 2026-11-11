@@ -1,0 +1,12 @@
+{"t":0,"kind":"request","data":"WS wss://example.com/c/signalr/connect?transport=webSockets&clientProtocol=1.5&connectionToken=FAKE_TOKEN&connectionData=%5B%7B%22name%22%3A%22hubc%22%7D%5D&tid=0"}
+{"t":197,"kind":"frame","data":"{\"C\":\"d-FAKE-A,0|C,0|D,1\",\"S\":1,\"M\":[]}"}
+{"t":197,"kind":"request","data":"GET https://example.com/c/signalr/start?transport=webSockets&clientProtocol=1.5&connectionToken=FAKE_TOKEN&connectionData=%5B%7B%22name%22%3A%22hubc%22%7D%5D"}
+{"t":235,"kind":"response","data":"200 {\"Response\":\"started\"}"}
+{"t":236,"kind":"send","data":"{\"H\":\"hubc\",\"M\":\"spikeNoSuchMethod\",\"A\":[],\"I\":0}"}
+{"t":330,"kind":"frame","data":"{\"I\":\"0\",\"E\":\"'spikeNoSuchMethod' method could not be resolved. No method found with that name.\"}"}
+{"t":10167,"kind":"frame","data":"{}"}
+{"t":20115,"kind":"frame","data":"{}"}
+{"t":30130,"kind":"frame","data":"{}"}
+{"t":40371,"kind":"frame","data":"{}"}
+{"t":50133,"kind":"request","data":"POST https://example.com/c/signalr/abort?transport=webSockets&clientProtocol=1.5&connectionToken=FAKE_TOKEN&connectionData=%5B%7B%22name%22%3A%22hubc%22%7D%5D"}
+{"t":50245,"kind":"response","data":"200"}

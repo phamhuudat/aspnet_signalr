@@ -1,0 +1,20 @@
+{"t":0,"kind":"request","data":"GET https://example.com/b/signalr/hubs/signalr/connect?transport=serverSentEvents&clientProtocol=1.5&connectionToken=FAKE_TOKEN&connectionData=%5B%7B%22name%22%3A%22hubb%22%7D%5D&tid=9 (Accept: text/event-stream)"}
+{"t":72,"kind":"response","data":"200"}
+{"t":72,"kind":"frame","data":"data: initialized"}
+{"t":72,"kind":"frame","data":""}
+{"t":111,"kind":"frame","data":"data: {\"C\":\"d-FAKE-A,0|C,0|D,1\",\"S\":1,\"M\":[]}"}
+{"t":111,"kind":"request","data":"GET https://example.com/b/signalr/hubs/signalr/start?transport=serverSentEvents&clientProtocol=1.5&connectionToken=FAKE_TOKEN&connectionData=%5B%7B%22name%22%3A%22hubb%22%7D%5D"}
+{"t":111,"kind":"frame","data":""}
+{"t":182,"kind":"response","data":"200 {\"Response\":\"started\"}"}
+{"t":10055,"kind":"frame","data":"data: {}"}
+{"t":10055,"kind":"frame","data":""}
+{"t":20070,"kind":"frame","data":"data: {}"}
+{"t":20070,"kind":"frame","data":""}
+{"t":30146,"kind":"frame","data":"data: {}"}
+{"t":30146,"kind":"frame","data":""}
+{"t":40112,"kind":"frame","data":"data: {}"}
+{"t":40113,"kind":"frame","data":""}
+{"t":50074,"kind":"request","data":"POST https://example.com/b/signalr/hubs/signalr/abort?transport=serverSentEvents&clientProtocol=1.5&connectionToken=FAKE_TOKEN&connectionData=%5B%7B%22name%22%3A%22hubb%22%7D%5D"}
+{"t":50139,"kind":"frame","data":"data: {}"}
+{"t":50139,"kind":"frame","data":""}
+{"t":50252,"kind":"response","data":"200"}

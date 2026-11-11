@@ -1,0 +1,29 @@
+{"t":0,"kind":"request","data":"GET https://example.com/a/signalr/hubs/signalr/connect?transport=serverSentEvents&clientProtocol=1.5&connectionToken=FAKE_TOKEN&connectionData=%5B%7B%22name%22%3A%22huba%22%7D%5D&tid=0 (Accept: text/event-stream)"}
+{"t":316,"kind":"response","data":"200"}
+{"t":316,"kind":"frame","data":"data: initialized"}
+{"t":316,"kind":"frame","data":""}
+{"t":317,"kind":"frame","data":"data: {\"C\":\"d-FAKE-A,0|C,0|D,1\",\"S\":1,\"M\":[]}"}
+{"t":317,"kind":"request","data":"GET https://example.com/a/signalr/hubs/signalr/start?transport=serverSentEvents&clientProtocol=1.5&connectionToken=FAKE_TOKEN&connectionData=%5B%7B%22name%22%3A%22huba%22%7D%5D"}
+{"t":317,"kind":"frame","data":""}
+{"t":347,"kind":"response","data":"200 {\"Response\":\"started\"}"}
+{"t":352,"kind":"frame","data":"data: {\"C\":\"d-FAKE-A,1|C,0|D,1\",\"M\":[{\"H\":\"HubA\",\"M\":\"update\",\"A\":[{\"Time\":\"10:00:13\",\"Change\":\"[{\\\"RowID\\\":\\\"AAA\\\",\\\"Info\\\":[[1,18.0],[2,19.5],[3,21.0],[4,22.5]]},{\\\"RowID\\\":\\\"BBB\\\",\\\"Info\\\":[[1,18.0],[2,19.5],[3,21.0],[4,22.5]]},{\\\"RowID\\\":\\\"CCC\\\",\\\"Info\\\":[[1,18.0]]}]\",\"ProcessTime\":\"94\",\"Channel\":\"CHANNEL_QUOTE_A\"}]}]}"}
+{"t":352,"kind":"frame","data":""}
+{"t":781,"kind":"frame","data":"data: {\"C\":\"d-FAKE-A,2|C,0|D,1\",\"M\":[{\"H\":\"HubA\",\"M\":\"update\",\"A\":[{\"Time\":\"10:00:15\",\"Change\":\"[{\\\"RowID\\\":\\\"AAA\\\",\\\"Info\\\":[[1,21.0],[2,22.5],[3,24.0]]},{\\\"RowID\\\":\\\"BBB\\\",\\\"Info\\\":[[1,21.0]]},{\\\"RowID\\\":\\\"CCC\\\",\\\"Info\\\":[[1,21.0],[2,22.5],[3,24.0]]}]\",\"ProcessTime\":\"98\",\"Channel\":\"CHANNEL_QUOTE_A\"}]}]}"}
+{"t":781,"kind":"frame","data":""}
+{"t":876,"kind":"frame","data":"data: {\"C\":\"d-FAKE-A,3|C,0|D,1\",\"M\":[{\"H\":\"HubA\",\"M\":\"update\",\"A\":[{\"Time\":\"10:00:16\",\"Change\":\"[{\\\"RowID\\\":\\\"AAA\\\",\\\"Info\\\":[[1,22.5]]}]\",\"ProcessTime\":\"84\",\"Channel\":\"CHANNEL_QUOTE_A\"}]}]}"}
+{"t":876,"kind":"frame","data":""}
+{"t":1013,"kind":"frame","data":"data: {\"C\":\"d-FAKE-A,4|C,0|D,1\",\"M\":[{\"H\":\"HubA\",\"M\":\"update\",\"A\":[{\"Time\":\"10:00:18\",\"Change\":\"[{\\\"RowID\\\":\\\"AAA\\\",\\\"Info\\\":[[1,25.5],[2,27.0],[3,28.5],[4,30.0]]},{\\\"RowID\\\":\\\"BBB\\\",\\\"Info\\\":[[1,25.5]]}]\",\"ProcessTime\":\"88\",\"Channel\":\"CHANNEL_QUOTE_A\"}]}]}"}
+{"t":1013,"kind":"frame","data":""}
+{"t":1203,"kind":"frame","data":"data: {\"C\":\"d-FAKE-A,5|C,0|D,1\",\"M\":[{\"H\":\"HubA\",\"M\":\"update\",\"A\":[{\"Time\":\"10:00:20\",\"Change\":\"[{\\\"RowID\\\":\\\"AAA\\\",\\\"Info\\\":[[1,28.5],[2,30.0],[3,31.5],[4,33.0]]},{\\\"RowID\\\":\\\"BBB\\\",\\\"Info\\\":[[1,28.5]]}]\",\"ProcessTime\":\"86\",\"Channel\":\"CHANNEL_QUOTE_A\"}]}]}"}
+{"t":1203,"kind":"frame","data":""}
+{"t":1305,"kind":"frame","data":"data: {\"C\":\"d-FAKE-A,6|C,0|D,1\",\"M\":[{\"H\":\"HubA\",\"M\":\"update\",\"A\":[{\"Time\":\"10:00:21\",\"Change\":\"[{\\\"RowID\\\":\\\"AAA\\\",\\\"Info\\\":[[1,30.0],[2,31.5],[3,33.0],[4,34.5]]},{\\\"RowID\\\":\\\"BBB\\\",\\\"Info\\\":[[1,30.0]]}]\",\"ProcessTime\":\"84\",\"Channel\":\"CHANNEL_QUOTE_A\"}]}]}"}
+{"t":1305,"kind":"frame","data":""}
+{"t":1515,"kind":"frame","data":"data: {\"C\":\"d-FAKE-A,7|C,0|D,1\",\"M\":[{\"H\":\"HubA\",\"M\":\"update\",\"A\":[{\"Time\":\"10:00:24\",\"Change\":\"[{\\\"RowID\\\":\\\"AAA\\\",\\\"Info\\\":[[1,34.5]]}]\",\"ProcessTime\":\"218\",\"Channel\":\"CHANNEL_QUOTE_A\"}]}]}"}
+{"t":1515,"kind":"frame","data":""}
+{"t":1740,"kind":"frame","data":"data: {\"C\":\"d-FAKE-A,8|C,0|D,1\",\"M\":[{\"H\":\"HubA\",\"M\":\"update\",\"A\":[{\"Time\":\"10:00:26\",\"Change\":\"[{\\\"RowID\\\":\\\"AAA\\\",\\\"Info\\\":[[1,37.5],[2,39.0],[3,40.5],[4,42.0]]},{\\\"RowID\\\":\\\"BBB\\\",\\\"Info\\\":[[1,37.5]]},{\\\"RowID\\\":\\\"CCC\\\",\\\"Info\\\":[[1,37.5]]}]\",\"ProcessTime\":\"83\",\"Channel\":\"CHANNEL_QUOTE_A\"}]}]}"}
+{"t":1741,"kind":"frame","data":""}
+{"t":1911,"kind":"frame","data":"data: {\"C\":\"d-FAKE-A,9|C,0|D,1\",\"M\":[{\"H\":\"HubA\",\"M\":\"update\",\"A\":[{\"Time\":\"10:00:27\",\"Change\":\"[{\\\"RowID\\\":\\\"AAA\\\",\\\"Info\\\":[[1,39.0]]}]\",\"ProcessTime\":\"88\",\"Channel\":\"CHANNEL_QUOTE_A\"}]}]}"}
+{"t":1912,"kind":"frame","data":""}
+{"t":2151,"kind":"frame","data":"data: {\"C\":\"d-FAKE-A,A|C,0|D,1\",\"M\":[{\"H\":\"HubA\",\"M\":\"update\",\"A\":[{\"Time\":\"10:00:29\",\"Change\":\"[{\\\"RowID\\\":\\\"AAA\\\",\\\"Info\\\":[[1,42.0]]},{\\\"RowID\\\":\\\"BBB\\\",\\\"Info\\\":[[1,42.0],[2,43.5],[3,45.0],[4,46.5]]},{\\\"RowID\\\":\\\"CCC\\\",\\\"Info\\\":[[1,42.0]]}]\",\"ProcessTime\":\"91\",\"Channel\":\"CHANNEL_QUOTE_A\"}]}]}"}
+{"t":15319,"kind":"request","data":"POST https://example.com/a/signalr/hubs/signalr/abort?transport=serverSentEvents&clientProtocol=1.5&connectionToken=FAKE_TOKEN&connectionData=%5B%7B%22name%22%3A%22huba%22%7D%5D"}
+{"t":15330,"kind":"response","data":"200"}

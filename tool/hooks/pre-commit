@@ -1,0 +1,10 @@
+#!/bin/sh
+# Install: ln -s ../../tool/hooks/pre-commit .git/hooks/pre-commit
+set -e
+if git diff --cached --name-only | grep -E '(^|/)(test/fixtures/_raw/|tool/spike/|\.sensitive-patterns$)'; then
+  echo "pre-commit: real data files are staged, aborting" >&2
+  exit 1
+fi
+dart format --output=none --set-exit-if-changed lib test tool example
+dart analyze --fatal-infos
+dart test test/fixtures_safety_test.dart
