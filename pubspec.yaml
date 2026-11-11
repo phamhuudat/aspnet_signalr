@@ -1,6 +1,6 @@
 name: aspnet_signalr
 description: "Pure Dart client for ASP.NET SignalR 2.x: multi-connection, proxy, WebSockets, SSE, Long Polling and auto reconnect."
-version: 0.0.1
+version: 0.1.0
 repository: https://github.com/phamhuudat/aspnet_signalr
 issue_tracker: https://github.com/phamhuudat/aspnet_signalr/issues
 topics: [signalr, realtime, websocket, sse, aspnet]

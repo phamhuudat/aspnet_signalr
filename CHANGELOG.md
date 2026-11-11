@@ -1,6 +1,6 @@
-## 0.0.1
+## 0.1.0
 
-- Initial development version (not published).
+- Initial release.
 - ASP.NET SignalR 2.x protocol 1.5: negotiate, connect, start, send, abort,
   reconnect, poll.
 - Transports: WebSockets, Server-Sent Events, Long Polling, `auto` fallback.
