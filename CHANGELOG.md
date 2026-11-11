@@ -1,6 +1,11 @@
 ## 0.1.0
 
 - Initial release.
+- `ProxyException` is raised only for real proxy failures (unreachable proxy,
+  `407`, refused `CONNECT` tunnel) of requests routed through the proxy;
+  server errors behind the proxy keep their type, so `auto` still falls back.
+- `build()` rejects proxy credentials that `dart:io` cannot carry (`;`, `:` in
+  the username, empty username, surrounding whitespace).
 - ASP.NET SignalR 2.x protocol 1.5: negotiate, connect, start, send, abort,
   reconnect, poll.
 - Transports: WebSockets, Server-Sent Events, Long Polling, `auto` fallback.

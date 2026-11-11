@@ -1,4 +1,5 @@
 import 'package:aspnet_signalr/aspnet_signalr.dart';
+import 'package:aspnet_signalr/src/domain/entities/proxy_config_validation.dart';
 import 'package:test/test.dart';
 
 void main() {
@@ -40,5 +41,44 @@ void main() {
     const env = ProxyConfig.fromEnvironment(environment: {'http_proxy': 'p:1'});
     expect(env.useEnvironment, isTrue);
     expect(env.resolve(Uri.parse('https://example.com')), isNull);
+  });
+
+  group('validation', () {
+    String? problem(
+            {String? user,
+            String? pass,
+            String host = 'p.example.com',
+            int port = 8080}) =>
+        proxyConfigProblem(ProxyConfig(
+            host: host, port: port, username: user, password: pass));
+
+    test('valid credentials, including special characters', () {
+      expect(problem(), isNull);
+      expect(problem(user: 'user', pass: 'secret'), isNull);
+      expect(problem(user: 'user', pass: 'p@ss:w0rd!#%&'), isNull);
+      expect(problem(user: r'DOMAIN\user', pass: ''), isNull);
+      expect(problem(user: 'me@example.com', pass: 'x'), isNull);
+    });
+
+    test('values dart:io would corrupt are rejected', () {
+      expect(problem(user: 'user', pass: 'a;b'), contains(';'));
+      expect(problem(user: 'a:b', pass: 'x'), contains(':'));
+      expect(problem(user: 'a;b', pass: 'x'), contains(';'));
+      expect(problem(user: '', pass: 'x'), contains('empty'));
+      expect(problem(user: ' user', pass: 'x'), contains('whitespace'));
+      expect(problem(user: 'user', pass: 'secret '), contains('whitespace'));
+      expect(problem(pass: 'x'), contains('username'));
+      expect(problem(host: 'a;b'), contains('host'));
+      expect(problem(port: 0), contains('port'));
+    });
+
+    test('the password is never part of the message', () {
+      expect(problem(user: 'user', pass: 'top;secret'), isNot(contains('top')));
+    });
+
+    test('custom and environment configs are not validated', () {
+      expect(proxyConfigProblem(ProxyConfig.custom((_) => 'DIRECT')), isNull);
+      expect(proxyConfigProblem(const ProxyConfig.fromEnvironment()), isNull);
+    });
   });
 }

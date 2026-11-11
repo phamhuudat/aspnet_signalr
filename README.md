@@ -237,6 +237,9 @@ HubConnectionBuilder()
 >   Read it yourself (for example with a system-proxy plugin) and pass it to `ProxyConfig`.
 > - **Web:** proxy settings are ignored (a warning is logged). The browser applies its own proxy configuration.
 > - If you pass both `withHttpClient()` and `withProxy()`, `build()` throws an `ArgumentError`.
+> - Proxy credentials may contain `@`, `:` and other symbols in the password. Because `dart:io`
+>   sends them on the `CONNECT` tunnel only from its PAC string, `build()` rejects values it would
+>   corrupt: `;` anywhere, `:` in the username, an empty username, or leading/trailing spaces.
 
 ## Error handling
 
@@ -258,7 +261,7 @@ or `hub.invoke<T>(method, args, timeout)`). Pending invocations fail when the tr
 | Exception | When |
 |---|---|
 | `NegotiateException` | `/negotiate` or `/start` failed (wrong URL, auth, hub name) |
-| `ProxyException` | Cannot reach the proxy, or the proxy rejected the credentials (407) |
+| `ProxyException` | The proxy cannot be reached, rejected the credentials (407) or refused the tunnel. Errors of the server behind the proxy keep their own type |
 | `TransportException` | No transport could connect, or the transport failed |
 | `HubInvocationException` | The server method threw an error |
 | `HubConnectionManagerException` | `startAll()` failed for some connections (`errors` per name) |

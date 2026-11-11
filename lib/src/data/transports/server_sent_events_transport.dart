@@ -69,7 +69,8 @@ class ServerSentEventsTransport extends TransportBase {
       endSession();
       throw mapNetworkError(
         e,
-        proxyConfigured: dataSource.http.proxyConfigured,
+        http: dataSource.http,
+        uri: uri,
         fallback: (e) => TransportException('SSE connect failed', cause: e),
       );
     }

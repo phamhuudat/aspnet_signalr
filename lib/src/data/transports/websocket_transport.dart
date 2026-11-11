@@ -62,7 +62,8 @@ class WebSocketTransport extends TransportBase {
       endSession();
       throw mapNetworkError(
         e,
-        proxyConfigured: http.proxyConfigured,
+        http: http,
+        uri: uri,
         fallback: (e) =>
             TransportException('WebSocket connect failed', cause: e),
       );

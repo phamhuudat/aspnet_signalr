@@ -37,8 +37,12 @@ class SignalRHttpDataSource {
 
   static const _form = 'application/x-www-form-urlencoded; charset=UTF-8';
 
-  SignalRException _map(Object e, SignalRException Function(Object) fb) =>
-      mapNetworkError(e, proxyConfigured: http.proxyConfigured, fallback: fb);
+  SignalRException _map(
+    Object e,
+    Uri uri,
+    SignalRException Function(Object) fb,
+  ) =>
+      mapNetworkError(e, http: http, uri: uri, fallback: fb);
 
   Future<http_pkg.Response> _get(Uri uri) async {
     logger.log(LogLevel.debug, 'GET $uri');
@@ -65,11 +69,13 @@ class SignalRHttpDataSource {
 
   /// `GET /negotiate`.
   Future<NegotiateResponseDto> negotiate() async {
+    final uri = urls.negotiate();
     final http_pkg.Response res;
     try {
-      res = await _get(urls.negotiate());
+      res = await _get(uri);
     } catch (e) {
-      throw _map(e, (e) => NegotiateException('Negotiate failed', cause: e));
+      throw _map(
+          e, uri, (e) => NegotiateException('Negotiate failed', cause: e));
     }
     _checkProxyStatus(res);
     if (res.statusCode != 200) {
@@ -97,11 +103,12 @@ class SignalRHttpDataSource {
 
   /// `GET /start`.
   Future<void> start(TransportType transport, ConnectionInfo info) async {
+    final uri = urls.start(transport, info);
     final http_pkg.Response res;
     try {
-      res = await _get(urls.start(transport, info));
+      res = await _get(uri);
     } catch (e) {
-      throw _map(e, (e) => NegotiateException('Start failed', cause: e));
+      throw _map(e, uri, (e) => NegotiateException('Start failed', cause: e));
     }
     _checkProxyStatus(res);
     if (res.statusCode != 200) {
@@ -146,7 +153,7 @@ class SignalRHttpDataSource {
     try {
       res = await _post(uri, data);
     } catch (e) {
-      throw _map(e, (e) => TransportException('POST failed', cause: e));
+      throw _map(e, uri, (e) => TransportException('POST failed', cause: e));
     }
     _checkProxyStatus(res);
     if (res.statusCode != 200) {

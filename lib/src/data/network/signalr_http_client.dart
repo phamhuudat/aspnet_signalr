@@ -1,5 +1,14 @@
 import 'package:http/http.dart' as http;
 
+import '../../domain/exceptions/signalr_exception.dart';
+
+/// Recognizes errors caused by the proxy for a request to `uri`.
+///
+/// Returns `null` when the error is not a proxy error (it comes from the
+/// server, from a direct connection, or from the network after the proxy was
+/// reached).
+typedef ProxyErrorClassifier = ProxyException? Function(Object error, Uri? uri);
+
 /// HTTP resources of one connection session.
 ///
 /// On `dart:io` platforms [nativeClient] is the `HttpClient` configured with
@@ -10,7 +19,7 @@ class SignalRHttpClient {
     required this.client,
     this.nativeClient,
     this.ownsClient = true,
-    this.proxyConfigured = false,
+    this.classifyProxyError,
   });
 
   /// Client for HTTP requests (negotiate, start, send, poll, SSE).
@@ -22,8 +31,11 @@ class SignalRHttpClient {
   /// Whether [close] closes [client].
   final bool ownsClient;
 
-  /// Whether a proxy is configured, used to map errors.
-  final bool proxyConfigured;
+  /// Set when a proxy is configured (on `dart:io` platforms).
+  final ProxyErrorClassifier? classifyProxyError;
+
+  /// Whether a proxy is configured.
+  bool get proxyConfigured => classifyProxyError != null;
 
   /// Releases the clients if owned.
   void close() {

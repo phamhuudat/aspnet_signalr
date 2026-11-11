@@ -6,6 +6,7 @@ import '../application/hub_connection_impl.dart';
 import '../core/logger.dart';
 import '../data/repositories/connection_session_impl.dart';
 import '../domain/entities/proxy_config.dart';
+import '../domain/entities/proxy_config_validation.dart';
 import '../domain/entities/transport_type.dart';
 import '../domain/policies/reconnect_policy.dart';
 import '../domain/repositories/connection_session.dart';
@@ -104,6 +105,13 @@ class HubConnectionBuilder {
         'withProxy() and withHttpClient() cannot be combined: '
         'configure the proxy on your own client instead',
       );
+    }
+    final proxy = _proxy;
+    if (proxy != null) {
+      final problem = proxyConfigProblem(proxy);
+      if (problem != null) {
+        throw ArgumentError('Invalid ProxyConfig: $problem');
+      }
     }
     final factory = _sessionFactory ??
         DefaultConnectionSessionFactory(
